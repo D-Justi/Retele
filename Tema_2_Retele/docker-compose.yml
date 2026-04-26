@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  server_udp:
+    build: .
+    command: python server.py
+    environment:
+      - PYTHONUNBUFFERED=1
+    ports:
+      - "9999:9999/udp"
+
+  client_udp:
+    build: .
+    profiles:
+      - donotstart
